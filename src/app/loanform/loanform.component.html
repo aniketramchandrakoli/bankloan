@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <div class="container">
+        <p class="display-5">Form to apply for a Personal Loan</p>
+      </div>
+
+    <div class="container mt-2">
+    <form  [formGroup]="formdata" (ngSubmit)="submitdata(formdata.value)">
+        <div class="mt-3" style="width: 800px;">
+        <label for="" >Full Name</label>
+        <input type="text"  class="form-control" placeholder="Full Name " name="fullname" formControlName="fullname" [(ngModel)]="fullname">
+        <span *ngIf="formdata.controls.fullname.invalid && formdata.controls.fullname.touched">Please enter Full Name</span>
+        
+    </div>
+    <div  class="mt-3" style="width: 800px;">
+        <label for="">Email</label>
+        <input type="email" class="form-control" placeholder="email" name="email" formControlName="email" [(ngModel)]="email">
+        <span *ngIf="formdata.controls.email.invalid && formdata.controls.email.touched">Please enter email</span>
+    </div>
+    <div  class="mt-3" style="width: 400px;">
+        <label for="">City</label>
+        <input type="text" class="form-control" placeholder="City" name="city" formControlName="city" [(ngModel)]="city">
+        <span *ngIf="formdata.controls.city.invalid && formdata.controls.city.touched">Please enter city</span>
+    </div>
+    <div  class="mt-3" style="width: 400px;">
+        <label for="">Pan Number</label>
+        <input type="text" class="form-control" placeholder="Pan Number" name="panNumber" formControlName="panNumber" [(ngModel)]="panNumber">
+        <span *ngIf="formdata.controls.panNumber.invalid && formdata.controls.panNumber.touched">Please enter panNumber</span>
+    </div>
+    <div  class="mt-3" style="width: 400px;">
+        <label for="">Mobile Number</label>
+        <input (input)="mobilecheck($event)" type="number"  class="form-control" placeholder="Mobile Number" name="mobile" formControlName="mobile" [(ngModel)]="mobile">
+        <span *ngIf="formdata.controls.mobile.invalid && formdata.controls.mobile.touched">Please enter mobileNumber</span>
+    </div>
+        <div  class="mt-3" style="width: 400px;">
+        <label for="">OTP</label>
+       
+        <input type="text"  class="form-control" placeholder="OTP" name="otp" formControlName="otp" [(ngModel)]="otp">
+        <span *ngIf="formdata.controls.otp.invalid && formdata.controls.otp.touched">Please enter otp</span>
+        <button type="button" class="btn btn-primary pt-2 " [disabled]="disablereset == false"
+        value="{{otpcount}}" (click)="resendotp()">Resend OTP</button>
+            
+    </div>
+
+    <div class="mt-3">
+        <button class="btn btn-primary " [disabled]="!formdata.valid">Submit</button>
+    </div>
+
+
+    </form>
+</div>
+</div>
+
+
